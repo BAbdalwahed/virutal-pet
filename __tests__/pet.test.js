@@ -39,7 +39,7 @@ describe('constructor', () => {
       expect(pet.fitness).toEqual(8);
     });
   });
-  describe('walk', () => {
+  describe('walk', () => {       
     it('increases fitness by to a maximum of 10', () => {
       const pet = new Pet('fido');
   
@@ -49,4 +49,22 @@ describe('constructor', () => {
       expect(pet.fitness).toEqual(10);
     });
   });
+  describe('checkUp', () => {       
+    it('if fitness is 3 or less return I need a walk', () => {
+      const pet = new Pet('fido');
   
+      pet.fitness = 8;
+      pet.walk();
+  
+      expect(pet.fitness).toEqual(10);
+    });
+  });
+  describe('feed', () => {
+    it('throws an error if the pet is not alive', () => {
+        const pet = new Pet('Fido');
+  
+        pet.age = 30;
+  
+        expect(pet.feed()).toThrow('Your pet is no longer alive :(');
+      });
+    });
