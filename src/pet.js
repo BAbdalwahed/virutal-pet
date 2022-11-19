@@ -3,7 +3,7 @@ const minFitness = 0;
 const fitnessDecr = 3 
 const maxHunger = 10;
 const minHunger = 0;
-const hungerDecr = 5;
+const hungerDecr = 3;
 const maxAge = 30;
 const minAge = 0;
 
@@ -24,6 +24,13 @@ function Pet(name) {
             this.fitness += 4;
         } else {
             this.fitness = MAXIMUM_FITNESS;
+        }
+    }
+    Pet.prototype.feed = function () {
+        if ((this.hunger -= hungerDecr) >= maxHunger) {
+            this.hunger -= this.hunger;
+        } else {
+            this.hunger = minHunger
         }
     }
 
